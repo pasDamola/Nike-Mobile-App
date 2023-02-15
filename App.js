@@ -1,15 +1,20 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, Text, View, Image, FlatList } from "react-native";
+import products from "./src/data/products";
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Image
-        source={{
-          uri: "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/nike/nike1.png",
-        }}
-        style={{ width: "100%", aspectRatio: 1 }}
+      <FlatList
+        data={products}
+        renderItem={({ item }) => (
+          <View style={{ width: "50%", padding: 1 }}>
+            <Image source={{ uri: item.image }} style={styles.image} />
+          </View>
+        )}
+        numColumns={2}
       />
+      <StatusBar style="auto" />
     </View>
   );
 }
@@ -20,5 +25,9 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
+  },
+  image: {
+    width: "100%",
+    aspectRatio: 1,
   },
 });
