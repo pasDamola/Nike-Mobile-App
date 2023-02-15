@@ -1,19 +1,11 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, Image, FlatList } from "react-native";
-import products from "./src/data/products";
+import { StyleSheet, View } from "react-native";
+import ProductScreen from "./src/screens/ProductScreen";
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <FlatList
-        data={products}
-        renderItem={({ item }) => (
-          <View style={{ width: "50%", padding: 1 }}>
-            <Image source={{ uri: item.image }} style={styles.image} />
-          </View>
-        )}
-        numColumns={2}
-      />
+      <ProductScreen />
       <StatusBar style="auto" />
     </View>
   );
