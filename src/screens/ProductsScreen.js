@@ -1,9 +1,7 @@
 import { FlatList, View, Image, Pressable, StyleSheet } from "react-native";
-import { useNavigation } from "@react-navigation/native";
 import products from "../data/products";
 
-const ProductScreen = () => {
-  const navigation = useNavigation();
+const ProductsScreen = () => {
   return (
     <FlatList
       data={products}
@@ -30,4 +28,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ProductScreen;
+export default ProductsScreen;

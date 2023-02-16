@@ -1,23 +1,23 @@
-import { FlatList, StyleSheet } from "react-native";
+import { StyleSheet, FlatList, Text, View, Pressable } from "react-native";
 import cart from "../data/cart";
 import CartListItem from "../components/CartListItem";
 
-const ShoppingCartTotals = () => {
+const ShoppingCartTotals = () => (
   <View style={styles.totalsContainer}>
     <View style={styles.row}>
       <Text style={styles.text}>Subtotal</Text>
-      <Text style={styles.text}>410,00 US$</Text>
+      <Text style={styles.text}>410,000 US$</Text>
     </View>
     <View style={styles.row}>
       <Text style={styles.text}>Delivery</Text>
-      <Text style={styles.text}>16,50 US$</Text>
+      <Text style={styles.text}>410,000 US$</Text>
     </View>
     <View style={styles.row}>
       <Text style={styles.textBold}>Total</Text>
-      <Text style={styles.textBold}>426,50 US$</Text>
+      <Text style={styles.textBold}>410,000 US$</Text>
     </View>
-  </View>;
-};
+  </View>
+);
 
 const ShoppingCart = () => {
   return (
@@ -27,11 +27,9 @@ const ShoppingCart = () => {
         renderItem={({ item }) => <CartListItem cartItem={item} />}
         ListFooterComponent={ShoppingCartTotals}
       />
-      <View style={styles.footer}>
-        <Pressable style={styles.button}>
-          <Text style={styles.buttonText}>Checkout</Text>
-        </Pressable>
-      </View>
+      <Pressable style={styles.button}>
+        <Text style={styles.buttonText}>Checkout</Text>
+      </Pressable>
     </>
   );
 };
@@ -56,23 +54,15 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "500",
   },
-  footer: {
-    position: "absolute",
-    bottom: 0,
-    width: "100%",
-    backgroundColor: "white",
-    borderColor: "gainsboro",
-    borderTopWidth: 1,
-    padding: 20,
-  },
-
   button: {
-    width: "100%",
+    position: "absolute",
     backgroundColor: "black",
+    bottom: 30,
+    width: "90%",
     alignSelf: "center",
-    alignItems: "center",
     padding: 20,
     borderRadius: 100,
+    alignItems: "center",
   },
   buttonText: {
     color: "white",
@@ -80,3 +70,5 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
 });
+
+export default ShoppingCart;
