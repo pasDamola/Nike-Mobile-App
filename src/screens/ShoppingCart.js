@@ -1,6 +1,7 @@
 import { StyleSheet, FlatList, Text, View, Pressable } from "react-native";
 import cart from "../data/cart";
 import CartListItem from "../components/CartListItem";
+import Button from "../components/Button";
 
 const ShoppingCartTotals = () => (
   <View style={styles.totalsContainer}>
@@ -27,9 +28,7 @@ const ShoppingCart = () => {
         renderItem={({ item }) => <CartListItem cartItem={item} />}
         ListFooterComponent={ShoppingCartTotals}
       />
-      <Pressable style={styles.button}>
-        <Text style={styles.buttonText}>Checkout</Text>
-      </Pressable>
+      <Button />
     </>
   );
 };
@@ -53,21 +52,6 @@ const styles = StyleSheet.create({
   textBold: {
     fontSize: 16,
     fontWeight: "500",
-  },
-  button: {
-    position: "absolute",
-    backgroundColor: "black",
-    bottom: 30,
-    width: "90%",
-    alignSelf: "center",
-    padding: 20,
-    borderRadius: 100,
-    alignItems: "center",
-  },
-  buttonText: {
-    color: "white",
-    fontWeight: "500",
-    fontSize: 16,
   },
 });
 

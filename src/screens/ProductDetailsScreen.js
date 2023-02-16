@@ -9,6 +9,7 @@ import {
   useWindowDimensions,
 } from "react-native";
 import products from "../data/products";
+import Button from "../components/Button.js";
 
 const ProductDetailsScreen = () => {
   const { width } = useWindowDimensions();
@@ -37,9 +38,7 @@ const ProductDetailsScreen = () => {
         </View>
       </ScrollView>
 
-      <Pressable onPress={addToCart} style={styles.button}>
-        <Text style={styles.buttonText}>Add to cart</Text>
-      </Pressable>
+      <Button onPress={addToCart} />
     </View>
   );
 };
@@ -60,21 +59,6 @@ const styles = StyleSheet.create({
     lineHeight: 30,
     fontWeight: "300",
     letterSpacing: 1.5,
-  },
-  button: {
-    position: "absolute",
-    backgroundColor: "black",
-    bottom: 30,
-    width: "90%",
-    alignSelf: "center",
-    padding: 20,
-    borderRadius: 100,
-    alignItems: "center",
-  },
-  buttonText: {
-    color: "white",
-    fontWeight: "500",
-    fontSize: 16,
   },
 });
 
