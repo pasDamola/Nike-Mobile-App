@@ -1,7 +1,7 @@
 import { FlatList, View, Image, Pressable, StyleSheet } from "react-native";
 import products from "../data/products";
 
-const ProductsScreen = () => {
+const ProductsScreen = ({ navigation }) => {
   return (
     <FlatList
       data={products}
@@ -10,10 +10,9 @@ const ProductsScreen = () => {
           onPress={() => {
             navigation.navigate("Product Details");
           }}
+          style={styles.itemContainer}
         >
-          <View style={{ width: "50%", padding: 1 }}>
-            <Image source={{ uri: item.image }} style={styles.image} />
-          </View>
+          <Image source={{ uri: item.image }} style={styles.image} />
         </Pressable>
       )}
       numColumns={2}
@@ -25,6 +24,10 @@ const styles = StyleSheet.create({
   image: {
     width: "100%",
     aspectRatio: 1,
+  },
+  itemContainer: {
+    width: "50%",
+    padding: 1,
   },
 });
 
