@@ -13,7 +13,6 @@ const ProductsScreen = () => {
       renderItem={({ item }) => (
         <Pressable
           onPress={() => {
-            // update selected product
             dispatch(productsSlice.actions.setSelectedProduct(item.id));
             navigation.navigate("Product Details");
           }}

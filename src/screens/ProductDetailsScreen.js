@@ -4,19 +4,22 @@ import {
   Image,
   Text,
   ScrollView,
-  Pressable,
   FlatList,
   useWindowDimensions,
 } from "react-native";
-import products from "../data/products";
 import Button from "../components/Button.js";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+
+import { cartSlice } from "../store/cartSlice.js";
 
 const ProductDetailsScreen = () => {
   const { width } = useWindowDimensions();
   const product = useSelector((state) => state.products.selectedProduct);
+  const dispatch = useDispatch();
 
-  const addToCart = () => {};
+  const addToCart = () => {
+    dispatch(cartSlice.actions.addCartItem({ product }));
+  };
 
   return (
     <View>
@@ -37,7 +40,7 @@ const ProductDetailsScreen = () => {
         </View>
       </ScrollView>
 
-      <Button onPress={addToCart} />
+      <Button onPress={addToCart} buttonText="Add To Cart" />
     </View>
   );
 };

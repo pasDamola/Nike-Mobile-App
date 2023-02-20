@@ -1,9 +1,9 @@
 import { Pressable, Text, StyleSheet } from "react-native";
 
-const Button = ({ onPress }) => {
+const Button = ({ onPress, buttonText }) => {
   return (
     <Pressable onPress={onPress} style={styles.button}>
-      <Text style={styles.buttonText}>Add to cart</Text>
+      <Text style={styles.buttonText}>{buttonText}</Text>
     </Pressable>
   );
 };
