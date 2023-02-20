@@ -7,7 +7,6 @@ import Navigation from "./src/navigation";
 export default function App() {
   return (
     <View style={styles.container}>
-      {/* <ProductDetailsScreen /> */}
       <Navigation />
     </View>
   );
